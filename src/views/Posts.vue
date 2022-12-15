@@ -32,7 +32,7 @@ const posts = computed(() => result?.value?.posts || [])
 
 <template>
     <div class="d-flex flex-column gap-2em">
-        <div class="d-flex flex-column align-center gap-1em">
+        <div class="d-flex flex-column gap-1em">
             <h1>All posts</h1>
             <div v-if="loading">Loading posts...</div>
         </div>
@@ -42,13 +42,13 @@ const posts = computed(() => result?.value?.posts || [])
                 <v-card-text class="py-2">
                     <div class="d-flex flex-column gap-1em">
                         <div>
-                            <RouterLink :to='{ path: `/author/${post.authors[0].id}` }'>
+                            <RouterLink :to='{ path: `/authors/${post.authors[0].id}` }'>
                                 {{ `${post.authors[0].name} (${post.authors[0].age}y) ` }}
                             </RouterLink>
                         </div>
                         <div class="text--primary">{{ post.content }}</div>
                         <div class="d-flex flex-row-reverse gap-1em">
-                            <RouterLink v-for="tag in post.tags" :key="tag.id" :to='{ path: `/tag/${tag.id}` }'>
+                            <RouterLink v-for="tag in post.tags" :key="tag.id" :to='{ path: `/tags/${tag.id}` }'>
                                 <v-chip label variant="outlined">
                                     {{ tag.name }}
                                 </v-chip>

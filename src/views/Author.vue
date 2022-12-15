@@ -37,26 +37,28 @@ const tags = computed(() => author.value?.tags || [])
             <div v-if="loading"> Loading author infos...</div>
             <div v-else>
                 <h1>{{ author?.name }}</h1>
-                <h2>Age: {{ author?.age }}</h2>
-                <h2>Country: {{ author?.country }}</h2>
+                <div>Age: {{ author?.age }}</div>
+                <div>Country: {{ author?.country }}</div>
             </div>
         </div>
-        <div>
+        <div v-if="!loading">
             <h2>Posts</h2>
             <div>
                 <div v-for="post in posts" :key="post.id">
-                    <RouterLink :to='{ path: `/post/${post.id}` }'>
+                    <RouterLink :to='{ path: `/posts/${post.id}` }'>
                         {{ `${post.title} (${post.views} views) ` }}
                     </RouterLink>
                 </div>
             </div>
         </div>
-        <div>
+        <div v-if="!loading">
             <h2>Tags</h2>
-            <div>
+            <div class="d-flex gap-1em">
                 <div v-for="tag in tags" :key="tag.id">
-                    <RouterLink :to='{ path: `/tag/${tag.id}` }'>
-                        {{ tag.name }}
+                    <RouterLink :to='{ path: `/tags/${tag.id}` }'>
+                        <v-chip label variant="outlined">
+                            {{ tag.name }}
+                        </v-chip>
                     </RouterLink>
                 </div>
             </div>
