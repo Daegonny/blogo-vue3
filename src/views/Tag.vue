@@ -4,6 +4,7 @@ import { computed } from 'vue';
 import { useQuery } from '@vue/apollo-composable';
 import gql from 'graphql-tag';
 import AuthorsContainer from '../components/AuthorsContainer.vue';
+import PostsContainer from '../components/PostsContainer.vue';
 
 const route = useRoute();
 const id = route.params.id;
@@ -19,6 +20,7 @@ const { result, loading } = useQuery(gql`
             posts {
                 id
                 title
+                views
             }
         }
     }
@@ -38,15 +40,6 @@ const posts = computed(() => tag.value?.posts || [])
             </div>
         </div>
         <AuthorsContainer v-if="!loading" :authors="authors" />
-        <div v-if="!loading">
-            <h2>Posts</h2>
-            <div>
-                <div v-for="post in posts" :key="post.id">
-                    <RouterLink :to='{ path: `/posts/${post.id}` }'>
-                        {{ post.title }}
-                    </RouterLink>
-                </div>
-            </div>
-        </div>
+        <PostsContainer v-if="!loading" :posts="posts" />
     </div>
 </template>

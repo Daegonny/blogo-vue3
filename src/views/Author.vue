@@ -3,6 +3,7 @@ import { useRoute } from 'vue-router';
 import { computed } from 'vue';
 import { useQuery } from '@vue/apollo-composable';
 import gql from 'graphql-tag';
+import PostsContainer from '../components/PostsContainer.vue';
 
 const route = useRoute();
 const id = route.params.id;
@@ -41,16 +42,7 @@ const tags = computed(() => author.value?.tags || [])
                 <div>Country: {{ author?.country }}</div>
             </div>
         </div>
-        <div v-if="!loading">
-            <h2>Posts</h2>
-            <div>
-                <div v-for="post in posts" :key="post.id">
-                    <RouterLink :to='{ path: `/posts/${post.id}` }'>
-                        {{ `${post.title} (${post.views} views) ` }}
-                    </RouterLink>
-                </div>
-            </div>
-        </div>
+        <PostsContainer v-if="!loading" :posts="posts" />
         <div v-if="!loading">
             <h2>Tags</h2>
             <div class="d-flex gap-1em">
