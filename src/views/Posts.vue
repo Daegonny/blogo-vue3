@@ -3,7 +3,7 @@ import { computed } from 'vue';
 import { useQuery } from '@vue/apollo-composable'
 import gql from 'graphql-tag'
 
-const { result, loading, error, refetch } = useQuery(gql`
+const { result, loading } = useQuery(gql`
     query getPosts{
         posts(queryParams:{
             sortBy: [
@@ -42,15 +42,17 @@ const posts = computed(() => result?.value?.posts || [])
                 <v-card-text class="py-2">
                     <div class="d-flex flex-column gap-1em">
                         <div>
-                            <span>
+                            <RouterLink :to='{ path: `/author/${post.authors[0].id}` }'>
                                 {{ `${post.authors[0].name} (${post.authors[0].age}y) ` }}
-                            </span>
+                            </RouterLink>
                         </div>
                         <div class="text--primary">{{ post.content }}</div>
                         <div class="d-flex flex-row-reverse gap-1em">
-                            <v-chip label variant="outlined" v-for="tag in post.tags" :key="tag.id">
-                                {{ tag.name }}
-                            </v-chip>
+                            <RouterLink v-for="tag in post.tags" :key="tag.id" :to='{ path: `/tag/${tag.id}` }'>
+                                <v-chip label variant="outlined">
+                                    {{ tag.name }}
+                                </v-chip>
+                            </RouterLink>
                         </div>
                     </div>
                 </v-card-text>
