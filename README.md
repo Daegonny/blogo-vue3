@@ -1,29 +1,32 @@
-# blogo-vue3
+# Blogo
 
-This template should help get you started developing with Vue 3 in Vite.
+# Installing and Starting the project
 
-## Recommended IDE Setup
+Install:
+* nodejs 18.0.0
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
+Project Setup:
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+Compile and Hot-Reload for Development:
 
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+Compile and Minify for Production
 
 ```sh
 npm run build
 ```
+
+## About
+
+Blogo is a toy project. It helped me to learn and apply graphql tools and concepts.
+The project models three related entities: Authors, Posts and Tags of a blog website.
+
+The frontend was written using the VueJS 3 framework and the Apollo Graphql client.
+More info about the graphql backend API can be found at: [blogo-graphql](https://github.com/Daegonny/blogo-graphql)
