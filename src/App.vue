@@ -8,7 +8,7 @@ import HelloWorld from './components/HelloWorld.vue'
     <nav class="d-inline-flex gap-2em pa-5">
       <RouterLink to="/">
         <div>
-          Home
+          About
         </div>
       </RouterLink>
       <v-divider vertical></v-divider>
