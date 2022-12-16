@@ -33,5 +33,6 @@ More info about the graphql backend API can be found at: [blogo-graphql](https:/
 
 ## Online Hosting
 
-The app is hosted on render at [https://read-blogo.onrender.com/](https://read-blogo.onrender.com/)
-And due to [render free hosting constraints](https://render.com/docs/free#free-web-services) the loading time can take a little long more than expected.
+The app is hosted on render at [https://read-blogo.onrender.com/](https://read-blogo.onrender.com/).
+
+Due to [render free hosting constraints](https://render.com/docs/free#free-web-services) the loading time can take a little long more than expected.
