@@ -11,7 +11,7 @@
         </div>
         <div>
             The Vue3 + Apollo Graphql frontend code can be found at: <a
-                href="https://github.com/Daegonny/">blogo-vue3</a>
+                href="https://github.com/Daegonny/blogo-vue3">blogo-vue3</a>
         </div>
         <div>
             The Elixir + Absinthe Graphql backend code can be found at: <a
